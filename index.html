@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="" type="text/javascritpt"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/calculator.css" >
+
+
+    </head>
+<body>
+    <div class="container fluid">
+        <div style="background-color:darkslateblue">box</div>
+        <div class="row">
+                <h2>Amortizing Loan Payment</h2>
+
+        </div>
+        <div class="row">
+            <div class=" col col-md d-flex justify-conten-around">
+                    <form class="border border-info p-5" >
+                        <div class="form-group row">
+                            <label for="amount" >Total Loan Amount @ 6%Annual   </label>
+                            <input type="text" class="form-control" id="input_amount" value="" placeholder="Amount *">
+                        </div>
+                        
+                        <div class="form-group row">
+
+                            <label for="installments" > Installment</label> *
+                            <input type="range" min="1" max="60" value="2" class="slider" id="installment_range">
+                            Number of Installments : <span id="slider_value" style="color:darkred; font-size:36px;"></span> Months
+                        
+                        </div>
+                        <div class="form-group row">
+
+                                <label for="installments" >Min Installment Amount</label>
+                                <input type="text" class="form-control" id="installment_min" value="" placeholder="Min Installments">
+                            </div>
+                
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="employment">Employed? [ yes to check ]            
+                        </div>
+                    
+                        <button type="button" onclick="calculateLoan()" class="btn btn-info btn-block mb-2" >Calculate</button>
+                    </form>
+            </div>    
+    
+    <div class="col col-md"> 
+        <div class="card text-white bg-info" style="width: 25em;">
+            <div class="card-header"><span style="font-size:3em;">!</span></div>
+            <div class="card-body ">
+                <h5 class="card-title">What Is an Amortized Loan?</h5>
+                <p class="card-text">
+                    
+                    An amortized loan is a loan with scheduled periodic 
+                    payments that are applied to both principal and interest. 
+                </p>
+                <p class="card-text">
+                    An amortized loan payment first pays off the relevant interest expense for the 
+                    period, after which the remainder of 
+                    the payment reduces the principal. Common amortized loans include auto loans,
+                    home loans and personal loans from a bank for small projects or debt consolidation.
+                </p>
+            </div>
+                
+        </div>
+    </div>
+    
+</div>
+
+    <div style="font-size:2em" id="result"></div>
+</div>
+
+</body>
+<script>
+
+    
+    var slider = document.getElementById("installment_range");
+    var output = document.getElementById("slider_value");
+    output.innerHTML = slider.value; // Display the default slider value
+    
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+    
+    
+    
+    function calculateLoan(){
+        
+        const INTEREST_RATE = (6/100)/12;
+        var loan_amount = document.getElementById('input_amount').value || "provide value";
+        var installment_min = document.getElementById('installment_min').value || "provide value";
+        var repay_duration = slider.value;
+        
+        /**
+         * Loan Payment = Amount / Discount Factor or P = A / D
+         * Discount Factor (D) = {[(1 + i) ^n] - 1} / [i(1 + i)^n] 
+        */
+        var discount_factor = 
+        
+        (Math.pow((1+INTEREST_RATE),repay_duration)-1)/(INTEREST_RATE * Math.pow((1+INTEREST_RATE),repay_duration));
+      
+    
+        var repay = Math.round( loan_amount/discount_factor ) || "Please fill all the amount";
+        document.getElementById("result").innerHTML= repay +"  <b > Euro/Month</b>";
+}
+
+</script>
+</html>
