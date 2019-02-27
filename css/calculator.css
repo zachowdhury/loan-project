@@ -7,11 +7,15 @@
 body{
  font-family: 'Roboto', sans-serif;
  font-family: 'Open Sans', sans-serif;
+ background-color: #ededed;
 }
 
 div{
   padding: 1px;
   /* margin-top: 10px; */
+}
+.container{
+  background-color: #ffffff;
 }
 header {
   position: relative;
@@ -20,7 +24,7 @@ header {
   overflow: hidden;
   /*background-image: linear-gradient( #6bffe4,#084456);*/
 }
-header h1{
+header h1 {
   
   font-size: 45px;
   font-weight: 100;
@@ -28,6 +32,18 @@ header h1{
   color: white;
   text-align: center;
 }
+
+header p, h2 {
+  font-size: 14px;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+aside {
+  color: gray;
+}
+
 .header_bg {
   position: absolute;
   top: 0;

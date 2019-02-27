@@ -14,27 +14,44 @@
 
 <body>
     <div class="container fluid">
-        <header>
+        <header style="margin-bottom:-200px;"> 
             <div class="header_bg"></div>
-            <div class="header_bg1"></div>
+            <div class="header_bg1 card-holder"></div>
             <h1>We give loan</h1>
+
             <div>
                 <nav style="color:white;">
-                  navigator//nav//nav//
-            </nav>
+                    navigator//nav//nav//
+                </nav>
             </div>
-        </header>
-        <!-- <div class="row">
-        </div> -->
-        <div class="row">
-            <div class="col col-6 d-flex card-holder">
-                <form class=" p-5 ">
-                    <div class="form-group row">
-                        <div for="amount" style="font-size:12px;">Total Loan Amount @ 6%Annual
+            <section class="hero text-light text-center">
+                <div class="container-sm">
+                    <div class="hero-inner">
+                        <!-- <h2 class="hero-title h2-mobile mt-0 is-revealing">Landing template for startups</h1> -->
+                        <p class="hero-paragraph is-revealing">Our Calculation is accurate, with one analysis we can process
+                            several banks to be paid to you.</p>
+                        <p class="hero-cta is-revealing"><a class="button button-secondary button-shadow" href="#loan-space">Get
+                                started now</a></p>
+                        <div class="hero-media">
                         </div>
-                        <span style="font-size:20px" id="result">
-                            You have to pay
-                        </span>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <div class="row">
+            <svg width="132" height="40" xmlns="http://www.w3.org/2000/svg">
+            </svg>
+        </div>
+        <section id="loan-space"></section>
+        <div class="row" style="margin:15px;">
+            <div class="col col-6 d-flex card-holder">
+                <form id="loan-form" class="p-5">
+                    <div class="form-group">
+                        <div style="font-size:20px;">Loan Amount@6% Annual</div>
+                        <hr>
+                        <div style="font-size:20px">
+                            You have to pay: <span id="result"></span>
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label for="installments">Email</label>
@@ -43,7 +60,7 @@
                     <div class="form-group row">
                         <label for="amount_range"> Choose Loan Amount:</label>
                         <span id="amount_value" style="color:darkred; font-size:25px;"></span>
-                        <input type="range" min="300" max="6000" step="300" value="100" class="slider" id="amount_range">
+                        <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range">
                     </div>
 
                     <div class="form-group row">
@@ -67,23 +84,22 @@
                 </form>
             </div>
             <div class="col col-6 d-flex ">
+                <section id="About-us">
+                    <aside>
+                        <h1>How we operate</h1>
+                        <p>
+                            How we operate in the loan sector is this a proper way to identify
+                        </p>
+                    </aside>
+
+                </section>
             </div>
         </div>
 
         <div class="row">
-            <div class="col col-6">
-
-                <section id="About-us">
-                    <article>
-                        <h2>How we operate</h2>
-                        <p>
-                            how we operate in teh loan sector is this a proper way to identify
-                        </p>
-                    </article>
-
-                </section>
+            <div class="col col-6 d-flex ">
                 <aside>
-                    <h2>About !</h2>
+                    <h1>About !</h1>
                     <p>We provide our customer evalution if they are elligible for loan or not .</p>
                 </aside>
             </div>
@@ -106,10 +122,11 @@
                 </div>
             </div>
         </div>
+        <footer>
+            <p>Copyright 2019 we goive loan</p>
+        </footer>
     </div>
-    <footer>
-        <p>Copyright 2019 we goive loan</p>
-    </footer>
+
 
     <script>
 
