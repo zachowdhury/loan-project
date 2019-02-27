@@ -1,109 +1,161 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="" type="text/javascritpt"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/calculator.css" >
+
+<head>
+    <title>We give loan</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script src="" type="text/javascritpt"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/calculator.css">
 
 
-    </head>
+</head>
+
 <body>
     <div class="container fluid">
-        <div style="background-color:darkslateblue">box</div>
-        <div class="row">
-                <h2>Amortizing Loan Payment</h2>
-
-        </div>
-        <div class="row">
-            <div class=" col col-md d-flex justify-conten-around">
-                    <form class="border border-info p-5" >
-                        <div class="form-group row">
-                            <label for="amount" >Total Loan Amount @ 6%Annual   </label>
-                            <input type="text" class="form-control" id="input_amount" value="" placeholder="Amount *">
-                        </div>
-                        
-                        <div class="form-group row">
-
-                            <label for="installments" > Installment</label> *
-                            <input type="range" min="1" max="60" value="2" class="slider" id="installment_range">
-                            Number of Installments : <span id="slider_value" style="color:darkred; font-size:36px;"></span> Months
-                        
-                        </div>
-                        <div class="form-group row">
-
-                                <label for="installments" >Min Installment Amount</label>
-                                <input type="text" class="form-control" id="installment_min" value="" placeholder="Min Installments">
-                            </div>
-                
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="employment">Employed? [ yes to check ]            
-                        </div>
-                    
-                        <button type="button" onclick="calculateLoan()" class="btn btn-info btn-block mb-2" >Calculate</button>
-                    </form>
-            </div>    
-    
-    <div class="col col-md"> 
-        <div class="card text-white bg-info" style="width: 25em;">
-            <div class="card-header"><span style="font-size:3em;">!</span></div>
-            <div class="card-body ">
-                <h5 class="card-title">What Is an Amortized Loan?</h5>
-                <p class="card-text">
-                    
-                    An amortized loan is a loan with scheduled periodic 
-                    payments that are applied to both principal and interest. 
-                </p>
-                <p class="card-text">
-                    An amortized loan payment first pays off the relevant interest expense for the 
-                    period, after which the remainder of 
-                    the payment reduces the principal. Common amortized loans include auto loans,
-                    home loans and personal loans from a bank for small projects or debt consolidation.
-                </p>
+        <header>
+            <div class="header_bg"></div>
+            <div class="header_bg1"></div>
+            <h1>We give loan</h1>
+            <div>
+                <nav style="color:white;">
+                  navigator//nav//nav//
+            </nav>
             </div>
-                
+        </header>
+        <!-- <div class="row">
+        </div> -->
+        <div class="row">
+            <div class="col col-6 d-flex card-holder">
+                <form class=" p-5 ">
+                    <div class="form-group row">
+                        <div for="amount" style="font-size:12px;">Total Loan Amount @ 6%Annual
+                        </div>
+                        <span style="font-size:20px" id="result">
+                            You have to pay
+                        </span>
+                    </div>
+                    <div class="form-group row">
+                        <label for="installments">Email</label>
+                        <input type="text" class="form-control" id="emai_address" value="" placeholder="john@example.com">
+                    </div>
+                    <div class="form-group row">
+                        <label for="amount_range"> Choose Loan Amount:</label>
+                        <span id="amount_value" style="color:darkred; font-size:25px;"></span>
+                        <input type="range" min="300" max="6000" step="300" value="100" class="slider" id="amount_range">
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="installment_range"> Installment:</label> *
+                        <span id="installment_value" style="color:darkred; font-size:25px;"></span>
+                        <label>Installments </label>
+                        <input type="range" min="1" max="60" value="2" class="slider" id="installment_range">
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="installments">Min Installment Amount</label>
+                        <input type="text" class="form-control" id="min_installment" value="" placeholder="Min Installments">
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="employment">Employed? [ yes to check ]
+                    </div>
+
+                    <button type="button" onclick="calculateLoan()" class="btn btn-info btn-block mb-2">Calculate</button>
+                </form>
+            </div>
+            <div class="col col-6 d-flex ">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-6">
+
+                <section id="About-us">
+                    <article>
+                        <h2>How we operate</h2>
+                        <p>
+                            how we operate in teh loan sector is this a proper way to identify
+                        </p>
+                    </article>
+
+                </section>
+                <aside>
+                    <h2>About !</h2>
+                    <p>We provide our customer evalution if they are elligible for loan or not .</p>
+                </aside>
+            </div>
+            <div class="col col-4">
+                <div class="card text-white bg-info card-holder" style="width: 25em;">
+                    <div class="card-header"><span style="font-size:3em;">!</span></div>
+                    <div class="card-body ">
+                        <h5 class="card-title">What Is an Amortized Loan?</h5>
+                        <p class="card-text">
+                            An amortized loan is a loan with scheduled periodic
+                            payments that are applied to both principal and interest.
+                        </p>
+                        <p class="card-text">
+                            An amortized loan payment first pays off the relevant interest expense for the
+                            period, after which the remainder of
+                            the payment reduces the principal. Common amortized loans include auto loans,
+                            home loans and personal loans from a bank for small projects or debt consolidation.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
-</div>
+    <footer>
+        <p>Copyright 2019 we goive loan</p>
+    </footer>
 
-    <div style="font-size:2em" id="result"></div>
-</div>
+    <script>
+
+        var loanSlider = document.getElementById('amount_range');
+        var amountValue = document.getElementById('amount_value');
+        amountValue.innerHTML = loanSlider.value;
+
+        var installmentSlider = document.getElementById("installment_range");
+        var installmentValue = document.getElementById("installment_value");
+        installmentValue.innerHTML = installmentSlider.value; // Display the default slider value
+
+        loanSlider.oninput = function () {
+            amountValue.innerHTML = this.value;
+        }
+
+        // Update the current slider value (each time you drag the slider handle)
+        installmentSlider.oninput = function () {
+            installmentValue.innerHTML = this.value;
+        }
+        var installmentMinAmount = document.getElementById('min_installment');
+
+
+
+        function calculateLoan() {
+
+            const INTEREST_RATE = (6 / 100) / 12;
+            var loan_amount = loanSlider.value || "provide value";
+            var installment_min = installmentMinAmount.value || 50;
+            var repay_duration = installmentSlider.value || "provide value";
+            console.log(installment_min)
+
+            /**
+             * Loan Payment = Amount / Discount Factor or P = A / D
+             * Discount Factor (D) = {[(1 + i) ^n] - 1} / [i(1 + i)^n] 
+            */
+            var discount_factor =
+
+                (Math.pow((1 + INTEREST_RATE), repay_duration) - 1) / (INTEREST_RATE * Math.pow((1 + INTEREST_RATE), repay_duration));
+
+
+            var repay = Math.round(loan_amount / discount_factor) || "Please fill all the amount";
+            document.getElementById("result").innerHTML = repay + "  <b > Euro/Month</b>";
+        }
+
+    </script>
 
 </body>
-<script>
 
-    
-    var slider = document.getElementById("installment_range");
-    var output = document.getElementById("slider_value");
-    output.innerHTML = slider.value; // Display the default slider value
-    
-    // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function() {
-        output.innerHTML = this.value;
-    }
-    
-    
-    
-    function calculateLoan(){
-        
-        const INTEREST_RATE = (6/100)/12;
-        var loan_amount = document.getElementById('input_amount').value || "provide value";
-        var installment_min = document.getElementById('installment_min').value || "provide value";
-        var repay_duration = slider.value;
-        
-        /**
-         * Loan Payment = Amount / Discount Factor or P = A / D
-         * Discount Factor (D) = {[(1 + i) ^n] - 1} / [i(1 + i)^n] 
-        */
-        var discount_factor = 
-        
-        (Math.pow((1+INTEREST_RATE),repay_duration)-1)/(INTEREST_RATE * Math.pow((1+INTEREST_RATE),repay_duration));
-      
-    
-        var repay = Math.round( loan_amount/discount_factor ) || "Please fill all the amount";
-        document.getElementById("result").innerHTML= repay +"  <b > Euro/Month</b>";
-}
-
-</script>
 </html>
