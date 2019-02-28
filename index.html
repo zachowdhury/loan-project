@@ -14,7 +14,7 @@
 
 <body>
     <div class="container fluid">
-        <header style="margin-bottom:-400px;"> 
+        <header style="margin-bottom:-400px;">
             <div class="header_bg"></div>
             <div class="header_bg1"></div>
             <h1>We give loan</h1>
@@ -28,7 +28,8 @@
                 <div class="container-sm">
                     <div class="hero-inner">
                         <!-- <h2 class="hero-title h2-mobile mt-0 is-revealing">Landing template for startups</h1> -->
-                        <p class="hero-paragraph is-revealing">Our Calculation is accurate, with one analysis we can process
+                        <p class="hero-paragraph is-revealing">Our Calculation is accurate, with one analysis we can
+                            process
                             several banks to be paid to you.</p>
                         <p class="hero-cta is-revealing"><a class="button button-secondary button-shadow" href="#loan-space">Get
                                 started now</a></p>
@@ -44,35 +45,39 @@
         </div>
         <section id="loan-space"></section>
         <div class="row" style="margin:15px;">
-            <div class="col col-6 d-flex card-shadow">
-                <form id="loan-form" class="p-5">
+            <div class="col col-6 d-flex form card-shadow">
+                <form id="loan-form" class="p-5 needs-validation" novalidate>
                     <div class="form-group">
-                        <div style="font-size:20px;">Loan Amount@6% Annual</div>
-                        <hr>
-                        <div style="font-size:20px">
-                            You have to pay: <span id="result"></span>
+                        <div>
+                            <label class=" form-header">Repayment Calculator</label>
                         </div>
+                        <label class=" form-header">
+                            You have to pay: <b><span id="result"></span></b>
+                        </label>
                     </div>
                     <div class="form-group row">
-                        <label for="installments">Email</label>
-                        <input type="text" class="form-control" id="emai_address" value="" placeholder="john@example.com">
+                        <label for="email_address">Email</label>
+                        <input type="text" class="form-control" id="email_address" value="" placeholder="john@example.com"
+                            required>
+                            <span id="validate_input"></span>
                     </div>
                     <div class="form-group row">
                         <label for="amount_range"> Choose Loan Amount:</label>
-                        <span id="amount_value" style="color:darkred; font-size:25px;"></span>
+
                         <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range">
+                        <span id="amount_value" style="color:darkred; font-size:25px;"></span>
                     </div>
 
                     <div class="form-group row">
                         <label for="installment_range"> Installment:</label> *
-                        <span id="installment_value" style="color:darkred; font-size:25px;"></span>
-                        <label>Installments </label>
                         <input type="range" min="1" max="60" value="2" class="slider" id="installment_range">
+                        <span id="installment_value" style="color:darkred; font-size:25px;"></span>
                     </div>
 
                     <div class="form-group row">
                         <label for="installments">Min Installment Amount</label>
-                        <input type="text" class="form-control" id="min_installment" value="" placeholder="Min Installments">
+                        <input type="text" class="form-control" id="min_installment" value="" placeholder="Min Installments"
+                            required>
                     </div>
 
                     <div class="form-check">
@@ -102,6 +107,13 @@
                     <h1>About !</h1>
                     <p>We provide our customer evalution if they are elligible for loan or not .</p>
                 </aside>
+                <div>
+                    <form>
+                        <input required>
+                        <input required>
+                        <button>Submit</button>
+                    </form>
+                </div>
             </div>
             <div class="col col-4">
                 <div class="card text-white bg-info card-shadow" style="width: 25em;">
@@ -148,15 +160,30 @@
         }
         var installmentMinAmount = document.getElementById('min_installment');
 
+        function formFieldCheck(form = {}) {
 
+
+            var email = form.valueOf().email_address.value;//check email regex
+            var min_installment_amount = form.valueOf().min_installment.value;
+            if (!email || !min_installment_amount) {
+                // form.validate_input.nextSibling.innerHTML="must";
+                return false;
+            }
+            console.log(email, min_installment_amount)
+
+
+        }
 
         function calculateLoan() {
+            formFieldCheck(
+                document.getElementById('loan-form')
+            )
 
             const INTEREST_RATE = (6 / 100) / 12;
             var loan_amount = loanSlider.value || "provide value";
             var installment_min = installmentMinAmount.value || 50;
             var repay_duration = installmentSlider.value || "provide value";
-            console.log(installment_min)
+            var form = document.getElementById('loan-form');
 
             /**
              * Loan Payment = Amount / Discount Factor or P = A / D
@@ -168,7 +195,7 @@
 
 
             var repay = Math.round(loan_amount / discount_factor) || "Please fill all the amount";
-            document.getElementById("result").innerHTML = repay + "  <b > Euro/Month</b>";
+            document.getElementById("result").innerHTML = repay + "€/Month";
         }
 
     </script>
