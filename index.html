@@ -162,11 +162,11 @@
 
         function formFieldCheck(form = {}) {
 
-
             var email = form.valueOf().email_address.value;//check email regex
             var min_installment_amount = form.valueOf().min_installment.value;
             if (!email || !min_installment_amount) {
                 // form.validate_input.nextSibling.innerHTML="must";
+                console.log ( Object.values(form) )
                 return false;
             }
             console.log(email, min_installment_amount)
