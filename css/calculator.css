@@ -18,14 +18,15 @@ div{
   background-color: #ffffff;
 }
 header {
+  font-family: inherit;
   position: relative;
   height: 500px;
   /* width: 100%; */
   overflow: hidden;
   /*background-image: linear-gradient( #6bffe4,#084456);*/
 }
-header h1 {
-  
+
+header h1 {  
   font-size: 45px;
   font-weight: 100;
   position: relative;
@@ -97,7 +98,7 @@ background-color: white;
 
 }
 .form .form-header {
-  font-family: 'Roboto';
+  font-family: inherit;
   background-color: white;
 }
 .form-header {
