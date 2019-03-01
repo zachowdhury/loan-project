@@ -46,7 +46,7 @@
         <section id="loan-space"></section>
         <div class="row" style="margin:15px;">
             <div class="col col-6 d-flex form card-shadow">
-                <form id="loan_form" class="p-5" name="loan-form" >
+                <form id="loan_form" class="p-5" name="loan_form">
                     <div class="form-group">
                         <div>
                             <label class=" form-header">Repayment Calculator</label>
@@ -55,16 +55,17 @@
                             You have to pay: <b><span id="result"></span></b>
                         </label>
                     </div>
-                    <div class="form-group row">
+                    <div id="tab" class="form-group row">
                         <label for="email_address">Email</label>
-                        <input type="text" class="form-control" id="email_address" name="email_address" value="" placeholder="john@example.com"
-                            required>
-                        <span id="validate_input"></span>
+                        <input type="text" class="form-control" id="email_address" name="email_address" value=""
+                            placeholder="john@example.com" required>
+                        <label name="validate_label"></label>
                     </div>
-                    <div class="form-group row">
+                    <div id="tab" class="form-group row">
                         <label for="amount_range"> Choose Loan Amount:</label>
 
-                        <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range" name="loan_amount">
+                        <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range"
+                            name="loan_amount">
                         <span id="amount_value" style="color:darkred; font-size:25px;"></span>
                     </div>
 
@@ -80,12 +81,21 @@
                             required name="min_installment">
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="employment">Employed? [ yes to check ]
+                    <div class="form-group row">
+                        <label class="form-check-label" for="employment_status" name="employment_satus"> Employed? [yes to check]
+                        <input class="form-check-input" type="checkbox" value="employment" id="employment_status" name="employment_status">
                     </div>
 
                     <button type="button" onclick="calculateLoan()" class="btn btn-info btn-block mb-2">Calculate</button>
+                
+                
+                    <div style="text-align:center;margin-top:40px;">
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                    </div>
+                
                 </form>
             </div>
             <div class="col col-6 d-flex ">
@@ -93,7 +103,7 @@
                     <aside>
                         <h1>How we operate</h1>
                         <p>
-                            How we operate in the loan sector is this a 
+                            How we operate in the loan sector is this a
                             proper way to identify
                         </p>
                     </aside>
@@ -155,20 +165,33 @@
             amountValue.innerHTML = this.value;
         }
 
+        function sendMail( formData ){
+
+        //TODO: this should be implemented soon
+        // customer email sendin implementation from server-side 
+        }
         // Update the current slider value (each time you drag the slider handle)
         installmentSlider.oninput = function () {
             installmentValue.innerHTML = this.value;
         }
         var installmentMinAmount = document.getElementById('min_installment');
 
+        function ifEmployd(checkbox) {
+            if (checkbox == true) return 1;
+            else return 0;
+        }
+
         function formFieldCheck(form = {}) {
 
-            var email = form.valueOf().email_address.value;//check email regex
+            var email = form.email_address.value;//check email regex
             var min_installment_amount = form.valueOf().min_installment.value;
+            const employmentStatus = ifEmployd(form.employment_status.checked); // if checked 1 else 0
+            console.log(employmentStatus)
             if (!email || !min_installment_amount) {
                 // form.validate_input.nextSibling.innerHTML="must";
-                console.log(Object.values(form))
-                return false;
+               console.log(form)
+                form.email_address.placeholder= "Required field";
+                form.min_installment.placeholder="Required field"
             }
             console.log(email, min_installment_amount)
 
@@ -176,9 +199,8 @@
         }
 
         function calculateLoan() {
-            formFieldCheck(
-                document.getElementById('loan-form')
-            )
+            // INFO :: if this checks ok
+            const check = formFieldCheck(document.loan_form);
 
             const INTEREST_RATE = (6 / 100) / 12;
             var loan_amount = loanSlider.value || "provide value";
@@ -191,10 +213,8 @@
              * Discount Factor (D) = {[(1 + i) ^n] - 1} / [i(1 + i)^n] 
             */
             var discount_factor =
-
-                (Math.pow((1 + INTEREST_RATE), repay_duration) - 1) / (INTEREST_RATE * Math.pow((1 + INTEREST_RATE), repay_duration));
-
-
+                (Math.pow((1 + INTEREST_RATE), repay_duration) - 1) /
+                (INTEREST_RATE * Math.pow((1 + INTEREST_RATE), repay_duration));
             var repay = Math.round(loan_amount / discount_factor) || "Please fill all the amount";
             document.getElementById("result").innerHTML = repay + "€/Month";
         }
