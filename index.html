@@ -46,7 +46,7 @@
         <section id="loan-space"></section>
         <div class="row" style="margin:15px;">
             <div class="col col-6 d-flex form card-shadow">
-                <form id="loan-form" class="p-5 needs-validation" novalidate>
+                <form id="loan_form" class="p-5" name="loan-form" >
                     <div class="form-group">
                         <div>
                             <label class=" form-header">Repayment Calculator</label>
@@ -57,27 +57,27 @@
                     </div>
                     <div class="form-group row">
                         <label for="email_address">Email</label>
-                        <input type="text" class="form-control" id="email_address" value="" placeholder="john@example.com"
+                        <input type="text" class="form-control" id="email_address" name="email_address" value="" placeholder="john@example.com"
                             required>
-                            <span id="validate_input"></span>
+                        <span id="validate_input"></span>
                     </div>
                     <div class="form-group row">
                         <label for="amount_range"> Choose Loan Amount:</label>
 
-                        <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range">
+                        <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range" name="loan_amount">
                         <span id="amount_value" style="color:darkred; font-size:25px;"></span>
                     </div>
 
                     <div class="form-group row">
                         <label for="installment_range"> Installment:</label> *
-                        <input type="range" min="1" max="60" value="2" class="slider" id="installment_range">
+                        <input type="range" min="1" max="60" value="2" class="slider" id="installment_range" name="installment_range">
                         <span id="installment_value" style="color:darkred; font-size:25px;"></span>
                     </div>
 
                     <div class="form-group row">
                         <label for="installments">Min Installment Amount</label>
                         <input type="text" class="form-control" id="min_installment" value="" placeholder="Min Installments"
-                            required>
+                            required name="min_installment">
                     </div>
 
                     <div class="form-check">
@@ -167,7 +167,7 @@
             var min_installment_amount = form.valueOf().min_installment.value;
             if (!email || !min_installment_amount) {
                 // form.validate_input.nextSibling.innerHTML="must";
-                console.log ( Object.values(form) )
+                console.log(Object.values(form))
                 return false;
             }
             console.log(email, min_installment_amount)
@@ -200,7 +200,6 @@
         }
 
     </script>
-
 </body>
 
 </html>
