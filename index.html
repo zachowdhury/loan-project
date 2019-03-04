@@ -183,12 +183,13 @@
 
     <!-- <script src="./src/main.js" type="text/javascript"> -->
     <script>
-    
+
         // variables Global
         const state = {
             next_button: 1,
             previous_button: 0,
             current_tab: 0,
+            valid:false,
         }
         var loanForm = document.loan_form;
         init()
@@ -217,7 +218,7 @@
 
             //TODO: this should be implemented soon
             // customer email sendin implementation from server-side 
-        }            console.log(loanForm)
+        } console.log(loanForm)
 
         var installmentMinAmount = loanForm.min_installment;
 
@@ -300,10 +301,10 @@
             } else {
                 document.loan_form.previous_button.style.display = "inline";
             }
-            if (index==tabs.length-1){
-                document.loan_form.next_button.innerHTML="Submint";
-            }else{
-                document.loan_form.next_button.innerHTML="Next >>"
+            if (index == tabs.length - 1) {
+                document.loan_form.next_button.innerHTML = "Submint";
+            } else {
+                document.loan_form.next_button.innerHTML = "Next >>"
             }
 
 
@@ -312,7 +313,7 @@
 
         function init() {
             formPageView(state.current_tab)
-            console.log('===>',state.current_tab)
+            console.log('===>', state.current_tab)
 
         }
         /*form view end*/
