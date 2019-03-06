@@ -43,20 +43,22 @@
             <svg width="132" height="40" xmlns="http://www.w3.org/2000/svg">
             </svg>
         </div>
+
         <section id="loan-space"></section>
-        <div class="row" style="margin:15px;">
+        <div class="row" style="margin:15px;" style="display:block;">
             <div class="col col-6 d-flex form card-shadow">
                 <form id="loan_form" class="p-5" name="loan_form">
+
+                    <div class="form-group">
+                        <div>
+                            <label class=" form-header">Repayment Calculator</label>
+                        </div>
+                        <label class=" form-header">
+                            You have to pay: <b><span id="result"></span></b>
+                        </label>
+                    </div>
                     <!-- start of first tab -->
                     <div class="tab">
-                        <div class="form-group">
-                            <div>
-                                <label class=" form-header">Repayment Calculator</label>
-                            </div>
-                            <label class=" form-header">
-                                You have to pay: <b><span id="result"></span></b>
-                            </label>
-                        </div>
                         <div class="form-group row">
                             <label for="email_address">Email</label>
                             <input type="text" class="form-control" id="email_address" name="email_address" value=""
@@ -111,32 +113,34 @@
                                 name="address">
                         </div>
                     </div>
-                    <!-- end tab -->
-
+                    <!-- end of second tab -->
                     <button id="previous_button" type="button" onclick="previousPage()" class="btn btn-info btn-info mb-2">
                         << Previous </button> <button id="next_button" type="button" onclick="nextPage()" class="btn btn-info btn-info mb-2">
                             Next>>
                     </button>
-
-
                     <div style="text-align:center;margin-top:40px;">
                         <span class="step"></span>
                         <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
                     </div>
-
                 </form>
             </div>
             <div class="col col-6 d-flex ">
-                <section id="About-us" style="text-align:end;">
-                    <aside>
-                        <h1>How we operate</h1>
-                        <p>
-                            How we operate in the loan sector is this a
-                            proper way to identify
-                        </p>
-                    </aside>
+                <section id="About-us" style="position:absolute">
+                    <div class="card text-white bg-info card-shadow" style="width: 25em;">
+                        <div class="card-header"><span style="font-size:1em;">!    An amortized loan is a loan with scheduled periodic
+                            payments that are applied to both principal and interest.</span></div>
+                        <div class="card-body ">
+                            <h5 class="card-title">How to apply !</h5>
+                            <p class="card-text">
+                             
+                            </p>
+                            <p class="card-text">
+                               <li>Choose appropriate loan  amount and installment.</li> 
+                               <li>Fill-in email and Minimum Installment amount.</li>
+                               <li>Click the next button </li>
+                            </p>
+                        </div>
+                    </div>
 
                 </section>
             </div>
@@ -148,31 +152,16 @@
                     <h1>About !</h1>
                     <p>We provide our customer evalution if they are elligible for loan or not .</p>
                 </aside>
-                <div>
-                    <form>
-                        <input required>
-                        <input required>
-                        <button>Submit</button>
-                    </form>
-                </div>
+                <aside>
+                    <h1>How we operate</h1>
+                    <p>
+                        How we operate in the loan sector is this a
+                        proper way to identify
+                    </p>
+                </aside>
             </div>
             <div class="col col-4">
-                <div class="card text-white bg-info card-shadow" style="width: 25em;">
-                    <div class="card-header"><span style="font-size:3em;">!</span></div>
-                    <div class="card-body ">
-                        <h5 class="card-title">What Is an Amortized Loan?</h5>
-                        <p class="card-text">
-                            An amortized loan is a loan with scheduled periodic
-                            payments that are applied to both principal and interest.
-                        </p>
-                        <p class="card-text">
-                            An amortized loan payment first pays off the relevant interest expense for the
-                            period, after which the remainder of
-                            the payment reduces the principal. Common amortized loans include auto loans,
-                            home loans and personal loans from a bank for small projects or debt consolidation.
-                        </p>
-                    </div>
-                </div>
+
             </div>
         </div>
         <footer>
@@ -188,10 +177,12 @@
         const state = {
             next_button: 1,
             previous_button: 0,
+            tab_lenth: 0,
             current_tab: 0,
-            valid:false,
+            valid: false,
         }
         var loanForm = document.loan_form;
+
         init()
         var loanSlider = document.getElementById('amount_range');
         var amountValue = document.getElementById('amount_value');
@@ -218,9 +209,7 @@
 
             //TODO: this should be implemented soon
             // customer email sendin implementation from server-side 
-        } console.log(loanForm)
-
-        var installmentMinAmount = loanForm.min_installment;
+        }
 
         function ifEmployd(checkbox) {
             if (checkbox == true) return 1;
@@ -232,22 +221,22 @@
             var email = form.email_address.value;//check email regex
             var min_installment_amount = form.valueOf().min_installment.value;
             const employmentStatus = ifEmployd(form.employment_status.checked); // if checked 1 else 0
-            console.log(form.employment_status.checked)
+ console.log(form.getElementsByClassName('tab'))
             if (!email || !min_installment_amount) {
                 // form.validate_input.nextSibling.innerHTML="must";
-                console.log(form)
-                form.email_address.placeholder = "Required field";
-                form.min_installment.placeholder = "Required field"
-                return 0;
+                // console.log(form)
+                form.email_address.className = "invalid";
+                form.min_installment.className = "invalid"
+                return true;
             }
-            state.next_button = true;
-            console.log(email, min_installment_amount, state.next_button)
+           
         }
 
         function calculateLoan() {
+
             // INFO :: if this checks ok
-            // const check = formFieldCheck(document.loan_form);
-            const INTEREST_RATE = (6 / 100) / 12;
+            var installmentMinAmount = loanForm.min_installment;
+            const interest_rate = (6 / 100) / 12;
             var loan_amount = loanSlider.value || "provide value";
             var installment_min = installmentMinAmount.value || 50;
             var repay_duration = installmentSlider.value || "provide value";
@@ -258,8 +247,8 @@
              * Discount Factor (D) = {[(1 + i) ^n] - 1} / [i(1 + i)^n] 
             */
             var discount_factor =
-                (Math.pow((1 + INTEREST_RATE), repay_duration) - 1) /
-                (INTEREST_RATE * Math.pow((1 + INTEREST_RATE), repay_duration));
+                (Math.pow((1 + interest_rate), repay_duration) - 1) /
+                (interest_rate * Math.pow((1 + interest_rate), repay_duration));
             var repay = Math.round(loan_amount / discount_factor) || "Please fill all the amount";
             document.getElementById("result").innerHTML = repay + "€/Month";
         }
@@ -268,21 +257,26 @@
         form View satrt
         */
         function nextPage() {
-            // const check = formFieldCheck(document.loan_form);
+            const check = formFieldCheck(document.loan_form);
             increament();
-            console.log(state.current_tab)
+            var tabs = document.getElementsByClassName('tab');
+            tabs[state.current_tab - 1].style.display = "none";
             formPageView(state.current_tab)
         }
 
         function previousPage() {
+            const check = formFieldCheck(document.loan_form);
             decrement();
-            console.log(state.current_tab)
-            formPageView(state.current_tab)
+            var tabs = document.getElementsByClassName('tab');
+            tabs[state.current_tab + 1].style.display = "none";
+            formPageView(state.current_tab);
         }
 
         function increament() {
-            state.current_tab = state.current_tab + 1;
-            return true;
+            for (; state.current_tab <= state.tab_lenth - 2;) {
+                state.current_tab = state.current_tab + 1;
+                return true;
+            }
         }
 
         function decrement() {
@@ -290,31 +284,36 @@
             return true;
         }
 
-        function formPageView(index) {
-            var tabs = document.getElementsByClassName('tab');
-            // console.log(document.loan_form);
-            // return ; 
-            tabs[index].style.display = "block";
+        function stepIndicator(now_step) {
+            var i, steps = document.getElementsByClassName("step");
+            for (i = 0; i < steps.length; i++) {
+                steps[i].className = steps[i].className.replace(" active", "");
+            }
+            steps[now_step].className += " active";
+        }
 
-            if (index == 0) {
+        function formPageView(tab_index) {
+
+            var tabs = document.getElementsByClassName('tab');
+            state.tab_lenth = tabs.length;
+            // return ; 
+            if (tab_index == -1) return false;
+            tabs[tab_index].style.display = "block";
+            if (tab_index == 0) {
                 document.loan_form.previous_button.style.display = "none";
             } else {
                 document.loan_form.previous_button.style.display = "inline";
             }
-            if (index == tabs.length - 1) {
+            if (tab_index == state.tab_lenth - 1) {
                 document.loan_form.next_button.innerHTML = "Submint";
             } else {
                 document.loan_form.next_button.innerHTML = "Next >>"
             }
-
-
-
+            stepIndicator(state.current_tab)
         }
 
         function init() {
             formPageView(state.current_tab)
-            console.log('===>', state.current_tab)
-
         }
         /*form view end*/
     </script>

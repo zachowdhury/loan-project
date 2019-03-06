@@ -1,0 +1,27 @@
+{
+  "name": "loan-project",
+  "version": "1.0.0",
+  "description": "A simple web loan application form in Java Script",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://zachowdhury@bitbucket.org/zachowdhury/loan-project.git"
+  },
+  "keywords": [
+    "lp"
+  ],
+  "author": "Chowdhury Zahid Abid",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/zachowdhury/loan-project#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  }
+}
