@@ -209,6 +209,9 @@
             calculateLoan()
         }
 
+        function postData(){
+            // TODO:: Implement post with fetch !!
+        } 
         function sendMail(formData) {
 
             //TODO: this should be implemented soon
@@ -222,14 +225,12 @@
         // var thisObject = {};
         function clearObject(obj) {
             var thisObject = obj.getElementsByClassName('tab');
-            for( let i of thisObject ){
+          for( let i of thisObject ){
                 return i;  
-
             }
             console.log(thisObject)
             // console.log(thisObject)ss
             return thisObject;
-
         }
         function formFieldCheck(form = {}) {
 
