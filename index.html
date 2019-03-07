@@ -53,7 +53,7 @@
                         <div>
                             <label class=" form-header">Repayment Calculator</label>
                         </div>
-                        <label class=" form-header">
+                        <label class=" form-header aside">
                             You have to pay: <b><span id="result"></span></b>
                         </label>
                     </div>
@@ -70,13 +70,13 @@
 
                             <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range"
                                 name="loan_amount">
-                            <span id="amount_value" style="color:darkred; font-size:25px;"></span>
+                            <span id="amount_value" style="color:gray; font-size:25px;"></span>
                         </div>
 
                         <div class="form-group row">
                             <label for="installment_range"> Installment:</label> *
                             <input type="range" min="1" max="60" value="2" class="slider" id="installment_range" name="installment_range">
-                            <span id="installment_value" style="color:darkred; font-size:25px;"></span>
+                            <span id="installment_value" style="color: gray; font-size:25px;"></span>
                         </div>
 
                         <div class="form-group row">
@@ -89,8 +89,7 @@
                             <label class="form-check-label" for="employment_status" name="employment_satus"> Employed?
                                 [yes
                                 to check]
-                                <input class="form-check-input" type="checkbox" value="employment" id="employment_status"
-                                    name="employment_status">
+                                <input class="form-check-input" type="checkbox" value="" id="employment_status" name="employment_status">
                         </div>
                     </div>
                     <!-- end of first tab -->
@@ -127,17 +126,18 @@
             <div class="col col-6 d-flex ">
                 <section id="About-us" style="position:absolute">
                     <div class="card text-white bg-info card-shadow" style="width: 25em;">
-                        <div class="card-header"><span style="font-size:1em;">!    An amortized loan is a loan with scheduled periodic
-                            payments that are applied to both principal and interest.</span></div>
+                        <div class="card-header"><span style="font-size:1em;">! An amortized loan is a loan with
+                                scheduled periodic
+                                payments that are applied to both principal and interest.</span></div>
                         <div class="card-body ">
                             <h5 class="card-title">How to apply !</h5>
                             <p class="card-text">
-                             
+
                             </p>
                             <p class="card-text">
-                               <li>Choose appropriate loan  amount and installment.</li> 
-                               <li>Fill-in email and Minimum Installment amount.</li>
-                               <li>Click the next button </li>
+                                <li>Choose appropriate loan amount and installment.</li>
+                                <li>Fill-in email and Minimum Installment amount.</li>
+                                <li>Click the next button </li>
                             </p>
                         </div>
                     </div>
@@ -219,21 +219,32 @@
             if (checkbox == true) return 1;
             else return 0;
         }
+        // var thisObject = {};
+        function clearObject(obj) {
+            var thisObject = obj.getElementsByClassName('tab');
+            for( let i of thisObject ){
+                return i;  
 
+            }
+            console.log(thisObject)
+            // console.log(thisObject)ss
+            return thisObject;
+
+        }
         function formFieldCheck(form = {}) {
+
+            clearObject(form);
 
             var email = form.email_address.value;//check email regex
             var min_installment_amount = form.valueOf().min_installment.value;
             const employmentStatus = ifEmployd(form.employment_status.checked); // if checked 1 else 0
- console.log(form.getElementsByClassName('tab'))
             if (!email || !min_installment_amount) {
                 // form.validate_input.nextSibling.innerHTML="must";
                 // console.log(form)
                 form.email_address.className = "invalid";
                 form.min_installment.className = "invalid"
-                return true;
+                return false;
             }
-           
         }
 
         function calculateLoan() {
@@ -261,7 +272,7 @@
         form View satrt
         */
         function nextPage() {
-            const check = formFieldCheck(document.loan_form);
+            if (formFieldCheck(document.loan_form) === false) return 0; // check failes stay in the page
             increament();
             var tabs = document.getElementsByClassName('tab');
             tabs[state.current_tab - 1].style.display = "none";
@@ -269,7 +280,6 @@
         }
 
         function previousPage() {
-            const check = formFieldCheck(document.loan_form);
             decrement();
             var tabs = document.getElementsByClassName('tab');
             tabs[state.current_tab + 1].style.display = "none";
