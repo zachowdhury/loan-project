@@ -19,12 +19,7 @@
             <div class="header_bg1"></div>
             <h1>We give loan</h1>
 
-            <div>
-                <nav style="color:white;">
-                    navigator//nav//nav//
-                </nav>
-            </div>
-            <section class="hero text-light text-center">
+            <section class="  text-center">
                 <div class="container-sm">
                     <div class="hero-inner">
                         <!-- <h2 class="hero-title h2-mobile mt-0 is-revealing">Landing template for startups</h1> -->
@@ -45,87 +40,101 @@
         </div>
 
         <section id="loan-space"></section>
-        <div class="row" style="margin:15px;" style="display:block;">
-            <div class="col col-6 d-flex form card-shadow">
-                <form id="loan_form" class="p-5" name="loan_form">
-
+        <div class=" row" style="margin:15px;" style="display:'';">
+            <div class="form col col-8 d-flex  card-shadow">
+                <form id="loan_form" class=" p-2" name="loan_form">
                     <div class="form-group">
-                        <div>
-                            <label class=" form-header">Repayment Calculator</label>
-                        </div>
-                        <label class=" form-header aside">
-                            You have to pay: <b><span id="result"></span></b>
-                        </label>
+                        <label class=" form-header">Repayment Calculator</label>
+                        <label class=" form-header "> Installment amount: </label>
+                        <label><span style="color:gray" id="result"></span></label>
+
+                        <label class=" form-header "> Total Installment: </label>
+                        <label><span style="color:gray" id="num_installment"></span></label>
+
+                        <label class=" form-header "> Interest: </label>
+                        <label><span style="color:gray" id="num_interest"></span></label>
                     </div>
                     <!-- start of first tab -->
                     <div class="tab">
-                        <div class="form-group row">
-                            <label for="email_address">Email</label>
-                            <input type="text" class="form-control" id="email_address" name="email_address" value=""
-                                placeholder="john@example.com" required>
-                            <label name="validate_label"></label>
-                        </div>
-                        <div class="form-group row">
-                            <label for="amount_range"> Choose Loan Amount:</label>
+                        <div class="box-border">
+                            <div class="form-group row">
+                                <label for="email_address">Email</label>
+                                <input type="email" class="form-control" id="email_address" name="email_address" value=""
+                                    placeholder="john@example.com" required>
+                                <label name="validate_label"></label>
+                            </div>
+                            <div class="form-group row">
+                                <label for="amount_range"> Choose Loan Amount:</label>
 
-                            <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range"
-                                name="loan_amount">
-                            <span id="amount_value" style="color:gray; font-size:25px;"></span>
-                        </div>
+                                <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range"
+                                    name="loan_amount">
+                                <span id="amount_value" style="color:gray; font-size:25px;"></span>
+                            </div>
 
-                        <div class="form-group row">
-                            <label for="installment_range"> Installment:</label> *
-                            <input type="range" min="1" max="60" value="2" class="slider" id="installment_range" name="installment_range">
-                            <span id="installment_value" style="color: gray; font-size:25px;"></span>
-                        </div>
+                            <div class="form-group row">
+                                <label for="installment_range"> Installment:</label> *
+                                <input type="range" min="1" max="60" value="2" class="slider" id="installment_range"
+                                    name="installment_range">
+                                <span id="installment_value" style="color: gray; font-size:25px;"></span>
+                            </div>
 
-                        <div class="form-group row">
-                            <label for="installments">Min Installment Amount</label>
-                            <input type="text" class="form-control" id="min_installment" value="" placeholder="Min Installments"
-                                required name="min_installment">
-                        </div>
+                            <div class="form-group row">
+                                <label for="installments">Min Installment Amount</label>
+                                <input type="text" class="form-control" id="min_installment" value="" placeholder="Min Installments"
+                                    required name="min_installment">
+                            </div>
 
-                        <div class="form-group row">
-                            <label class="form-check-label" for="employment_status" name="employment_satus"> Employed?
-                                [yes
-                                to check]
-                                <input class="form-check-input" type="checkbox" value="" id="employment_status" name="employment_status">
+                            <div class="row form-check form-check-inline">
+                                <label class="form-check-label" for="employment_status">
+                                    Employed?
+                                    [yes to check]
+                                    <input class="form-check-input" type="checkbox" value="" id="employment_status"
+                                        name="employment_status">
+                            </div>
                         </div>
                     </div>
                     <!-- end of first tab -->
                     <!-- start of second tab -->
                     <div class="tab">
+                        <div class="input-group">
+                            <div class="form-group row">
+                                <label for="f_name">Name</label>
+                                <input type="text" class="form-control" id="f_name" value="" placeholder="First Name"
+                                    name="f_name">
+                            </div>
 
-                        <div class="form-group row">
-                            <label for="f_name">Name</label>
-                            <input type="text" class="form-control" id="f_name" value="" placeholder="First Name" name="f_name">
-                        </div>
+                            <div class="form-group row">
+                                <label for="l_name">Last Name</label>
+                                <input type="text" class="form-control" id="l_name" value="" placeholder="Last Name"
+                                    name="l_name">
+                            </div>
 
-                        <div class="form-group row">
-                            <label for="l_name">Last Name</label>
-                            <input type="text" class="form-control" id="l_name" value="" placeholder="Last Name" name="l_name">
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="address">Address </label>
-                            <input type="text" class="form-control" id="address" value="" placeholder="Your Address here"
-                                name="address">
+                            <div class="form-group row">
+                                <label for="address">Address </label>
+                                <input type="text" class="form-control" id="address" value="" placeholder="Your Address here"
+                                    name="address">
+                            </div>
                         </div>
                     </div>
                     <!-- end of second tab -->
-                    <button id="previous_button" type="button" onclick="previousPage()" class="btn btn-info btn-info mb-2">
-                        << Previous </button> <button id="next_button" type="button" onclick="nextPage()" class="btn btn-info btn-info mb-2">
-                            Next>>
-                    </button>
-                    <div style="text-align:center;margin-top:40px;">
-                        <span class="step"></span>
-                        <span class="step"></span>
+                    <div class="form-group">
+                        <div>
+
+                            <button id="previous_button" type="button" onclick="previousPage()" class="btn custom-button">
+                                << Previous </button> <button id="next_button" type="button" onclick="nextPage()" class="btn custom-button">
+                                    Next>>
+                            </button>
+                        </div>
+                        <div class="">
+                            <span class="step"></span>
+                            <span class="step"></span>
+                        </div>
                     </div>
                 </form>
             </div>
-            <div class="col col-6 d-flex ">
+            <div class="col col-4 d-flex ">
                 <section id="About-us" style="position:absolute">
-                    <div class="card text-white bg-info card-shadow" style="width: 25em;">
+                    <div class="card text-white bg-info card-shadow">
                         <div class="card-header"><span style="font-size:1em;">! An amortized loan is a loan with
                                 scheduled periodic
                                 payments that are applied to both principal and interest.</span></div>
@@ -184,6 +193,7 @@
             tab_lenth: 0,
             current_tab: 0,
             valid: false,
+            thisObject: {},
         }
         var loanForm = document.loan_form;
 
@@ -209,9 +219,15 @@
             calculateLoan()
         }
 
-        function postData(){
+        function postData( data ) {
             // TODO:: Implement post with fetch !!
-        } 
+            fetch("https://httpbin.org/post", {
+                method: "POST",
+                body: JSON.stringify("")
+            }).then(res => {
+                console.log("Request complete! response:", res);
+            });
+        }
         function sendMail(formData) {
 
             //TODO: this should be implemented soon
@@ -223,36 +239,42 @@
             else return 0;
         }
         // var thisObject = {};
-        function clearObject(obj) {
+        function currentFormObject(obj) {
             var thisObject = obj.getElementsByClassName('tab');
-          for( let i of thisObject ){
-                return i;  
-            }
-            console.log(thisObject)
+            state.thisObject = thisObject;
             // console.log(thisObject)ss
             return thisObject;
         }
         function formFieldCheck(form = {}) {
 
-            clearObject(form);
+            const tabs = currentFormObject(form);
+            console.log('state', state.current_tab)
+            console.log(tabs[state.current_tab])
 
-            var email = form.email_address.value;//check email regex
-            var min_installment_amount = form.valueOf().min_installment.value;
+            let email = form.email_address.value;//check email regex
+            let min_installment_amount = form.valueOf().min_installment.value;
+            let f_name = form.f_name.value;
+            let l_name = form.l_name.value;
+            let address = form.address.value;
+
             const employmentStatus = ifEmployd(form.employment_status.checked); // if checked 1 else 0
+
             if (!email || !min_installment_amount) {
                 // form.validate_input.nextSibling.innerHTML="must";
                 // console.log(form)
                 form.email_address.className = "invalid";
                 form.min_installment.className = "invalid"
+
                 return false;
             }
         }
 
         function calculateLoan() {
+            let interest = 6;
 
             // INFO :: if this checks ok
             var installmentMinAmount = loanForm.min_installment;
-            const interest_rate = (6 / 100) / 12;
+            const interest_rate = (interest / 100) / 12;
             var loan_amount = loanSlider.value || "provide value";
             var installment_min = installmentMinAmount.value || 50;
             var repay_duration = installmentSlider.value || "provide value";
@@ -267,21 +289,27 @@
                 (interest_rate * Math.pow((1 + interest_rate), repay_duration));
             var repay = Math.round(loan_amount / discount_factor) || "Please fill all the amount";
             document.getElementById("result").innerHTML = repay + "€/Month";
+            document.getElementById('num_installment').innerHTML = repay_duration;
+            document.getElementById('num_interest').innerHTML = interest + ' %';
+
         }
 
         /*
         form View satrt
         */
         function nextPage() {
-            if (formFieldCheck(document.loan_form) === false) return 0; // check failes stay in the page
             increament();
+            if (formFieldCheck(document.loan_form) === false) return 0; // check fields if false stay in the page
             var tabs = document.getElementsByClassName('tab');
             tabs[state.current_tab - 1].style.display = "none";
+            postData(tabs)
             formPageView(state.current_tab)
         }
 
         function previousPage() {
             decrement();
+            if (formFieldCheck(document.loan_form) === false) return 0; // check fields if false stay in the page
+
             var tabs = document.getElementsByClassName('tab');
             tabs[state.current_tab + 1].style.display = "none";
             formPageView(state.current_tab);
@@ -299,12 +327,12 @@
             return true;
         }
 
-        function stepIndicator(now_step) {
+        function stepIndicator(current_step) {
             var i, steps = document.getElementsByClassName("step");
             for (i = 0; i < steps.length; i++) {
                 steps[i].className = steps[i].className.replace(" active", "");
             }
-            steps[now_step].className += " active";
+            steps[current_step].className += " active";
         }
 
         function formPageView(tab_index) {

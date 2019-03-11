@@ -8,7 +8,8 @@ body {
 }
 
 div {
-  padding: 1px;
+  padding: 2px;
+  margin-top: 20px;
   /* margin-top: 10px; */
 }
 
@@ -92,10 +93,46 @@ hr {
 
 /* end banner body */
 
-.card-shadow {
-  background-color: white;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+/* grid layout starts with roots */
+
+form {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  /* grid-template-rows: 500px 1fr; */
+  grid-gap: 30px;
+  color: gray;
 }
+
+label {
+  align-self: right;
+  grid-column: 200px;
+}
+
+input {
+  align-self: left;
+  grid-column: 200px;
+}
+
+.custom-button {
+  background: rgba(241, 196, 15, 0.9);
+  align-self: center;
+}
+
+.box-border {
+  border: 5px chartreuse;
+}
+
+/* .form-group {float: left;} */
+
+.item-1 {
+  background: rgba(241, 196, 15, 0.5);
+}
+
+.item-2 {
+  background: chocolate;
+}
+
+/* grid layout ends with roots */
 
 .form .form-header {
   font-family: inherit;
@@ -108,6 +145,74 @@ hr {
   font-size: 20px;
   text-align: center;
 }
+
+.card-shadow {
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Form starts -------------------*/
+
+/* Style the form */
+
+.regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+/* Style the input fields */
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+
+.invalid {
+  background-color: rgba(246, 0, 0, 0.1);
+}
+
+/* Hide all steps by default: */
+
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+  text-align:center;
+  margin-top:40px;
+}
+
+/* Mark the active step: */
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+
+.step.finish {
+  background-color: #4CAF50;
+}
+
+/*-        --- form ends*/
 
 /*Slider ------------*/
 
@@ -129,7 +234,7 @@ hr {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: rgb(0, 21, 206);
+  background: rgba( 175, 96, 26, 0.9);
   cursor: pointer;
 }
 
@@ -137,7 +242,7 @@ hr {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: rgb(0, 21, 206);
+  background: rgb( 175, 96, 26, 0.9);
   cursor: pointer;
 }
 
@@ -149,73 +254,3 @@ hr {
 }
 
 /* end slider */
-
-.validation-error {
-  border-color: crimson;
-}
-
-/* Form starts -------------------*/
-
-/* Style the form */
-
-/* form {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-} */
-
-#regForm {
-  background-color: #ffffff;
-  margin: 100px auto;
-  padding: 40px;
-  width: 70%;
-  min-width: 300px;
-}
-
-/* Style the input fields */
-
-input {
-  padding: 10px;
-  width: 100%;
-  font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
-}
-
-/* Mark input boxes that gets an error on validation: */
-
-input.invalid {
-  background-color: #ffdddd;
-}
-
-/* Hide all steps by default: */
-
-.tab {
-  display: none;
-}
-
-/* Make circles that indicate the steps of the form: */
-
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
-
-/* Mark the active step: */
-
-.step.active {
-  opacity: 1;
-}
-
-/* Mark the steps that are finished and valid: */
-
-.step.finish {
-  background-color: #4CAF50;
-}
-
-/*-        --- form ends*/
