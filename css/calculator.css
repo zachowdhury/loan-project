@@ -8,8 +8,8 @@ body {
 }
 
 div {
-  padding: 2px;
-  margin-top: 20px;
+  padding: 8px;
+  /* margin-right:5px; */
   /* margin-top: 10px; */
 }
 
@@ -95,23 +95,7 @@ hr {
 
 /* grid layout starts with roots */
 
-form {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  /* grid-template-rows: 500px 1fr; */
-  grid-gap: 30px;
-  color: gray;
-}
-
-label {
-  align-self: right;
-  grid-column: 200px;
-}
-
-input {
-  align-self: left;
-  grid-column: 200px;
-}
+/* Style the input fields */
 
 .custom-button {
   background: rgba(241, 196, 15, 0.9);
@@ -124,8 +108,9 @@ input {
 
 /* .form-group {float: left;} */
 
-.item-1 {
-  background: rgba(241, 196, 15, 0.5);
+.form-info {
+  color: gray;
+  text-align: right;
 }
 
 .item-2 {
@@ -155,27 +140,26 @@ input {
 
 /* Style the form */
 
-.regForm {
+.reg-form {
   background-color: #ffffff;
   margin: 100px auto;
-  padding: 40px;
+  /* padding: 40px; */
   width: 70%;
   min-width: 300px;
 }
 
-/* Style the input fields */
+.form-group-border {
+  border-left: 8px solid greenyellow;
+}
 
-input {
-  padding: 10px;
-  width: 100%;
-  font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
+.form-left-pannel {
+  background: #c0dfd9;
 }
 
 /* Mark input boxes that gets an error on validation: */
 
 .invalid {
+  border-bottom-color: darkred;
   background-color: rgba(246, 0, 0, 0.1);
 }
 
@@ -196,8 +180,8 @@ input {
   border-radius: 50%;
   display: inline-block;
   opacity: 0.5;
-  text-align:center;
-  margin-top:40px;
+  text-align: center;
+  margin-top: 40px;
 }
 
 /* Mark the active step: */
@@ -254,3 +238,9 @@ input {
 }
 
 /* end slider */
+
+.item-3 {
+  height: 100px;
+  width: 100px;
+  background: darkorange;
+}
