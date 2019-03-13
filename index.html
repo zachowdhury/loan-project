@@ -199,12 +199,14 @@
             tab_lenth: 0,
             current_tab: 0,
             valid: false,
+            responseObject:{},
             thisObject: {},
         }
         var loanForm = document.loan_form;
 
         init()
         var loanSlider = document.getElementById('amount_range');
+
         var amountValue = document.getElementById('amount_value');
         // default value on load
         amountValue.innerHTML = loanSlider.value;
@@ -228,26 +230,27 @@
         function selectedInput(id) {
             // here we check input values and field comparison
             // this.style.bacground="red";
-            
+
             const ty = document.getElementById(id);
             ty.className = "form-control form-group-border"
-            this.loan_form.input = function(){
                 document.getElementById(id).className = "form-control "
 
-            }
-            console.log ( 'chapppyypyp',ty.type)
+            
+            console.log('selctor called')
         }
 
         function postData(data) {
             // TODO:: Implement post with fetch !!
             fetch("https://httpbin.org/post", {
                 method: "POST",
-                body: JSON.stringify("")
+                body: JSON.stringify(data)
             }).then(res => {
+                state.responseObject= res;
                 console.log("Request complete! response:", res);
             });
         }
         function sendMail(formData) {
+            formData.map(e=>console.log(e))
 
             //TODO: this should be implemented soon
             // customer email sendin implementation from server-side 
@@ -267,7 +270,6 @@
         function formFieldCheck(form = {}) {
 
             const tabs = currentFormObject(form);
-            console.log('currnt -state', tabs)
             console.log('show current', tabs[state.current_tab])
 
             let email = form.email_address.value;//check email regex
@@ -278,16 +280,23 @@
 
             const employmentStatus = ifEmployd(form.employment_status.checked); // if checked 1 else 0
 
-            if (!email || !min_installment_amount) {
-                // form.validate_input.nextSibling.innerHTML="must";
-                // console.log(form)
-                form.email_address.className = " form-control invalid";
-                form.min_installment.className = "form-control invalid"
+            if (state.current_tab == 0) {
+                console.log('Page in ',state.current_tab)
 
-                return false;
+                if (!email || !min_installment_amount) {
+                    // form.validate_input.nextSibling.innerHTML="must";
+                    // console.log('inside the first fucntion')
+                    form.email_address.className = " form-control invalid";
+                    form.min_installment.className = "form-control invalid"
+                    return false;
+                }
             }
-            if (state.current_tab==1 ){
-                console.log('what is this ',tabs[state.current_tab])
+
+            if (state.current_tab == 1) {
+                console.log(currentFormObject(tabs[state.current_tab]))
+                for(let i=0; i<=tabs[0].length;i++){
+                    console.log(i+tabs[i])
+                }
                 // if ( !tabs[state.current_tab].f_name.value || !tabs[state.current_tab].l_name.value){
                 //     tabs[state.current_tab].f_name.className=" form-control invalid";
                 //     tabs[state.current_tab].l_name.className=" form-control invalid";
@@ -335,7 +344,7 @@
         function previousPage() {
             decrement();
             if (formFieldCheck(document.loan_form) === false) return 0; // check fields if false stay in the page
-
+        
             var tabs = document.getElementsByClassName('tab');
             tabs[state.current_tab + 1].style.display = "none";
             formPageView(state.current_tab);
@@ -374,7 +383,8 @@
                 document.loan_form.previous_button.style.display = "inline";
             }
             if (tab_index == state.tab_lenth - 1) {
-                document.loan_form.next_button.innerHTML = "Submint";
+                document.loan_form.next_button.innerHTML = "Submit";
+                document.loan_form.next_button.onclick=sendMail([{"name":"zahid"}]);
             } else {
                 document.loan_form.next_button.innerHTML = "Next >>"
             }
