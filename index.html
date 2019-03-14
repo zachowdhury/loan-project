@@ -23,10 +23,10 @@
                 <div class="container-sm">
                     <div class="hero-inner">
                         <!-- <h2 class="hero-title h2-mobile mt-0 is-revealing">Landing template for startups</h1> -->
-                        <p class="hero-paragraph is-revealing">Our Calculation is accurate, with one analysis we can
+                        <p class="">Our Calculation is accurate, with one analysis we can
                             process
                             several banks to be paid to you.</p>
-                        <p class="hero-cta is-revealing"><a class="button button-secondary button-shadow" href="#loan-space">Get
+                        <p class=""><a class="button button-secondary button-shadow" href="#loan-space">Get
                                 started now</a></p>
                         <div class="hero-media">
                         </div>
@@ -164,18 +164,18 @@
         <div class="row">
             <div class="col col-12 d-flex ">
                 <aside>
-                    <h1>About !</h1>
+                    <h5>About !</h5>
                     <p>We provide our customer evalution if they are elligible for loan or not .</p>
                 </aside>
                 <aside>
-                    <h1>How we operate</h1>
+                    <h5>How we operate</h5>
                     <p>
                         How we operate in the loan sector is this a
                         proper way to identify
                     </p>
                 </aside>
                 <aside>
-                    <h1>Get in touch with us</h1>
+                    <h5>Get in touch with us</h5>
                     <p>
                         Contac us as your convenient.
                     </p>
@@ -206,7 +206,6 @@
 
         init()
         var loanSlider = document.getElementById('amount_range');
-
         var amountValue = document.getElementById('amount_value');
         // default value on load
         amountValue.innerHTML = loanSlider.value;
@@ -233,12 +232,15 @@
 
             const ty = document.getElementById(id);
             ty.className = "form-control form-group-border"
-                document.getElementById(id).className = "form-control "
-
-            
-            console.log('selctor called')
+                document.getElementById(id).className = "form-control "           
         }
+        function allFormData(form){
+           return Object.values(form)
+            .reduce((obj,field) => { 
+                obj[field.name] = field.value; return obj 
+            }, {})
 
+        }
         function postData(data) {
             // TODO:: Implement post with fetch !!
             fetch("https://httpbin.org/post", {
@@ -246,11 +248,10 @@
                 body: JSON.stringify(data)
             }).then(res => {
                 state.responseObject= res;
-                console.log("Request complete! response:", res);
             });
         }
         function sendMail(formData) {
-            formData.map(e=>console.log(e))
+            // formData.map(e=>console.log(e))
 
             //TODO: this should be implemented soon
             // customer email sendin implementation from server-side 
@@ -269,21 +270,14 @@
         }
         function formFieldCheck(form = {}) {
 
-            const tabs = currentFormObject(form);
-            console.log('show current', tabs[state.current_tab])
-
+            // const tabs = currentFormObject(form);
+            // console.log('show current', tabs[state.current_tab])
             let email = form.email_address.value;//check email regex
             let min_installment_amount = form.min_installment.value;
-            let f_name = form.f_name.value;
-            let l_name = form.l_name.value;
-            let address = form.address.value;
-
             const employmentStatus = ifEmployd(form.employment_status.checked); // if checked 1 else 0
 
             if (state.current_tab == 0) {
-                console.log('Page in ',state.current_tab)
-
-                if (!email || !min_installment_amount) {
+                if ( !form.email_address.value || !form.min_installment.value ) {
                     // form.validate_input.nextSibling.innerHTML="must";
                     // console.log('inside the first fucntion')
                     form.email_address.className = " form-control invalid";
@@ -292,15 +286,13 @@
                 }
             }
 
-            if (state.current_tab == 1) {
-                console.log(currentFormObject(tabs[state.current_tab]))
-                for(let i=0; i<=tabs[0].length;i++){
-                    console.log(i+tabs[i])
+            if (state.current_tab == 1) {        
+                if ( !form.f_name.value || !form.l_name.value || !form.address.value ){
+                    form.f_name.className=" form-control invalid";
+                    form.l_name.className=" form-control invalid";
+                    form.address.className=" form-control invalid";
+                    return false;
                 }
-                // if ( !tabs[state.current_tab].f_name.value || !tabs[state.current_tab].l_name.value){
-                //     tabs[state.current_tab].f_name.className=" form-control invalid";
-                //     tabs[state.current_tab].l_name.className=" form-control invalid";
-                // }
             }
         }
 
@@ -371,7 +363,6 @@
         }
 
         function formPageView(tab_index) {
-            console.log(tab_index)
             var tabs = document.getElementsByClassName('tab');
             state.tab_lenth = tabs.length;
             // return ; 
@@ -384,7 +375,7 @@
             }
             if (tab_index == state.tab_lenth - 1) {
                 document.loan_form.next_button.innerHTML = "Submit";
-                document.loan_form.next_button.onclick=sendMail([{"name":"zahid"}]);
+                document.loan_form.next_button.addEventListener('click',sendMail);
             } else {
                 document.loan_form.next_button.innerHTML = "Next >>"
             }
