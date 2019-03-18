@@ -1,34 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,500');
+@import './movie.css';
 /*imports upwards*/
 
 body {
   font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   /* font-family: 'Open Sans', sans-serif; */
   background-color: #ededed;
 }
-
-div {
-  padding: 8px;
-  /* margin-right:5px; */
-  /* margin-top: 10px; */
-}
-
 .container {
   background-color: #ffffff;
+}
+
+div {
+  /* padding: 8px; */
+  /* margin-right:5px; */
+  /* margin-top: 10px; */
 }
 
 header {
   font-family: inherit;
   position: relative;
-  height: 500px;
+  height: fit-content;
   /* width: 100%; */
+  margin-bottom: 10px;
   overflow: hidden;
-  /*background-image: linear-gradient( #6bffe4,#084456);*/
+  /*background-image: linear-gradient( #084456,#084456);*/
 }
 
 header h1 {
-  font-size: 45px;
-  font-weight: 600;
+  font-size: 50px;
+  font-weight: 100;
   position: relative;
   color: white;
   text-align: center;
@@ -38,11 +40,10 @@ header p, h2 {
   font-size: 14px;
   position: relative;
   color: white;
-  text-align: center;
+  /* text-align: center; */
 }
 
 aside {
-
   color: gray;
 }
 
@@ -54,11 +55,11 @@ aside {
   left: 0;
   width: 100%;
   height: 70%;
-  background-image: -ms-linear-gradient( #6bffe4, #084456);
-  background-image: -webkit-linear-gradient( #6bffe4, #084456);
-  background-image: -moz-linear-gradient( #6bffe4, #084456);
-  background-image: -o-linear-gradient( #6bffe4, #084456);
-  background-image: linear-gradient( #6bffe4, #084456);
+  background-image: -ms-linear-gradient( #084456, #084456);
+  background-image: -webkit-linear-gradient( #084456, #084456);
+  background-image: -moz-linear-gradient( #084456, #084456);
+  background-image: -o-linear-gradient( #084456, #084456);
+  background-image: linear-gradient( #084456, #084456);
   transform: skewY(15deg);
   transform-origin: bottom right;
 }
@@ -71,56 +72,58 @@ aside {
   left: 20;
   width: 100%;
   height: 50%;
-  background-image: -ms-linear-gradient( #6bffe4, #1ea0b1);
-  background-image: -webkit-linear-gradient( #6bffe4, #1ea0b1);
-  background-image: -moz-linear-gradient( #6bffe4, #1ea0b1);
-  background-image: -o-linear-gradient( #6bffe4, #1ea0b1);
-  background-image: linear-gradient( #6bffe4, #1ea0b1);
+  background-image: -ms-linear-gradient( #084456, #1ea0b1);
+  background-image: -webkit-linear-gradient( #084456, #1ea0b1);
+  background-image: -moz-linear-gradient( #084456, #1ea0b1);
+  background-image: -o-linear-gradient( #084456, #1ea0b1);
+  background-image: linear-gradient( #084456, #1ea0b1);
   transform: skewY(-9deg);
   transform-origin: top left;
 }
 
 /* banner body */
 
-hr {
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
+.banner-canvas {
+  position: relative;
+  z-index: 3;
 }
-
 /* end banner body */
-
-/* grid layout starts with roots */
 
 /* Style the input fields */
 
 .custom-button {
-  background: rgba(241, 196, 15, 0.9);
+  background: rgba(3, 175, 190, 0.9);
   align-self: center;
 }
 
-.box-border {
-  border: 5px chartreuse;
+.box-spacer {
+  width: 100%;
+  height:5em;
 }
+.card.bg-infor{
+  background-image: -ms-linear-gradient(  #155e68,#187b88);
+  background-image: -webkit-linear-gradient( #155e68,#187b88);
+  background-image: -moz-linear-gradient( #155e68,#187b88);
+  background-image: -o-linear-gradient( #155e68,#187b88);
+  background-image: linear-gradient( #155e68,#187b88);
+  /* background: #084456; */
 
-/* .form-group {float: left;} */
-
-.form-info {
-  color: gray;
-  text-align: right;
 }
-
-.item-2 {
-  background: chocolate;
+.card-shadow {
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+a {
+  color: #ffffff;
+}
+/* Form starts -------------------*/
 /* grid layout ends with roots */
 
-.form .form-header {
+form {
+  padding: 8px;
+}
+
+.form  {
   font-family: inherit;
   background-color: white;
 }
@@ -132,30 +135,35 @@ hr {
   text-align: center;
 }
 
-.card-shadow {
-  background-color: white;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-/* Form starts -------------------*/
 
 /* Style the form */
 
+/* .form-group {float: left;} */
+
+
+
+.form-left-pannel {
+  color: #ffffff;
+  background: #00a5ba;
+  text-align: right;
+  grid-template-columns: 40px 50px auto 50px 40px;
+  grid-template-rows: 25% 100px auto;
+}
+.form-info {
+  font-size: 1em;
+  color:#ffffff;
+  text-align: right;
+}
 .reg-form {
   background-color: #ffffff;
-  margin: 50px auto;
-  /* padding: 40px; */
-  width: 70%;
-  min-width: 300px;
+  margin: 0px;
+  padding:0px;
+  /* width: 70%; */
+  /* min-width: 300px; */
 }
 
 .form-group-border {
   border-left: 8px solid greenyellow;
-}
-
-.form-left-pannel {
-  color: #9fa8a3;
-  background: #c0dfd9;
 }
 
 /* Mark input boxes that gets an error on validation: */
@@ -198,7 +206,6 @@ hr {
   background-color: #4CAF50;
 }
 
-/*-        --- form ends*/
 
 /*Slider ------------*/
 
@@ -220,7 +227,7 @@ hr {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: rgba( 175, 96, 26, 0.9);
+  background: rgba( 23,63,76, 0.9);
   cursor: pointer;
 }
 
@@ -228,7 +235,7 @@ hr {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: rgb( 175, 96, 26, 0.9);
+  background: rgb( 23,63,76, 0.9);
   cursor: pointer;
 }
 
@@ -240,9 +247,13 @@ hr {
 }
 
 /* end slider */
+.page-footer{
+  color: #ffffff;
+/* background: #00565e; */
+background-image: -ms-linear-gradient(  #187b88,#155e68);
+background-image: -webkit-linear-gradient( -10deg, #187b88,#155e68 7%);
+background-image: -moz-linear-gradient(  #187b88,#155e68);
+background-image: -o-linear-gradient(  #187b88,#155e68);
+background-image: linear-gradient(   #187b88,#155e68);
 
-.item-3 {
-  height: 100px;
-  width: 100px;
-  background: darkorange;
 }

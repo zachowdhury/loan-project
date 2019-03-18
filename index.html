@@ -7,141 +7,158 @@
 
     <script src="" type="text/javascritpt"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/calculator.css">
-
 
 </head>
 
 <body>
     <div class="container fluid">
-        <header style="margin-bottom:-400px;">
-            <div class="header_bg"></div>
-            <div class="header_bg1"></div>
-            <h1>We give loan</h1>
+        <header>
 
-            <section class="  text-center">
-                <div class="container-sm">
-                    <div class="hero-inner">
+            <!-- <div class="header_bg"></div>
+            <div class="header_bg1"></div> -->
+            <section id="video-view">
+
+                <div class="banner-canvas">
+                    <div class="video-header viewport-header">
+                        <h1>We give loan</h1>
                         <!-- <h2 class="hero-title h2-mobile mt-0 is-revealing">Landing template for startups</h1> -->
-                        <p class="">Our Calculation is accurate, with one analysis we can
-                            process
-                            several banks to be paid to you.</p>
-                        <p class=""><a class="button button-secondary button-shadow" href="#loan-space">Get
-                                started now</a></p>
-                        <div class="hero-media">
-                        </div>
+                        <p class="viewport-slogan">Relax enjoy you tea while we provide cash</p>
+                        <p>
+                            This webpage provides loan application made easy<br>
+                            appicatnts can apply and based on the application <br>
+                            data we evaluate for our major lenders, they select customer and gives loan
+
+
+                        </p>
+                        <p class=""><a class="btn btn-info" href="#loan-space">Get apply now </a></p>
+
+                    </div>
+                    <div class="fullscreen-bg">
+                        <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+                            <source src="video/big_buck_bunny.webm" type="video/webm">
+                            <source src="video/pexelsVideos1.mp4" type="video/mp4">
+                            <source src="video/big_buck_bunny.ogv" type="video/ogg">
+                        </video>
                     </div>
                 </div>
+
             </section>
         </header>
-        <div class="row">
-            <svg width="132" height="40" xmlns="http://www.w3.org/2000/svg">
-            </svg>
-        </div>
+
         <!-- <div class="row ">
             <div class="col col-4 item-3"> </div>
             <div class="col col-6 item-3"></div>
         </div> -->
 
-        <section id="loan-space"></section>
-        <div></div>
-        <div class="row reg-form">
-            <label class=" form-header">Repayment Calculator</label>
-        </div>
-        <div class="row">
+        <section id="loan-space">
+            <div class="row">
+                <label class=" form-header"></label>
+            </div>
+
             <!-- form info left pannel -->
-            <div class="col col-2 form-left-pannel" style="text-align:right;">
-                <div style="margin-top: 40px; ">
-                    <label class=" form-info "> Installment amount: </label>
-                    <label><span style="color:gray" id="result"></span></label>
-                    <label class=" form-info "> Total Installment: </label>
-                    <label><span style="color:gray" id="num_installment"></span></label>
-                    <label class=" form-info "> Interest: </label>
-                    <label><span style="color:gray" id="num_interest"></span></label>
+            <div class="row reg-form">
+                <div class="col col-2 form-left-pannel">
+                    <div style="margin-top: 40px; ">
+                        <label class=" form-info "> Installment amount: </label>
+                        <label><span id="result"></span></label>
+                        <hr>
+                        <label class=" form-info "> Total Installment: </label>
+                        <label><span id="num_installment"></span></label>
+                        <hr>
+                        <label class=" form-info "> Interest: </label>
+                        <label><span id="num_interest"></span></label>
+                        <hr>
+                    </div>
                 </div>
-            </div>
-            <!-- end of form info form-left-pannel -->
-            <div class="col col-6">
-                <label class="" style="position: relative;">Fill out information here</label>
+                <!-- end of form info form-left-pannel -->
+                <div class="col col-6">
+                    <label class="form-header">Repaymnet Calculator:</label>
 
-                <form id="loan_form" class="" name="loan_form">
+                    <form id="loan_form" name="loan_form">
 
-                    <!-- start of first tab -->
-                    <div class="tab" style="margin-left: 15px;">
-                        <div class="form-group row" style="">
-                            <label for="email_address">Email</label>
-                            <input type="email" class="form-control" id="email_address" name="email_address" value=""
-                                placeholder="john@example.com" onfocus="selectedInput(this.id)" required>
-                            <label name="validate_label"></label>
+                        <!-- start of first tab -->
+                        <div class="tab">
+                            <div class="form-group row"="">
+                                <label for="email_address">Email</label>
+                                <input type="email" class="form-control" id="email_address" name="email_address" value=""
+                                    placeholder="john@example.com" onfocus="selectedInput(this.id)" required>
+                                <label name="validate_label"></label>
+                            </div>
+                            <div class="form-group row">
+                                <label for="amount_range"> Choose Loan Amount:</label>
+
+                                <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range"
+                                    name="loan_amount">
+                                <span id="amount_value"="color:gray; font-size:25px;"></span>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="installment_range"> Installment:</label> *
+                                <input type="range" min="1" max="60" value="2" class="slider" id="installment_range"
+                                    name="installment_range">
+                                <span id="installment_value"></span>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="installments">Min Installment Amount</label>
+                                <input type="text" class="form-control" id="min_installment" value="" placeholder="Min Installments"
+                                    required name="min_installment">
+                            </div>
+
+                            <div class="row form-check form-check-inline">
+                                <label class="form-check-label" for="employment_status">
+                                    Employed?
+                                    [yes to check]
+                                    <input class="form-check-input" type="checkbox" value="" id="employment_status"
+                                        name="employment_status">
+                            </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="amount_range"> Choose Loan Amount:</label>
+                        <!-- end of first tab -->
 
-                            <input type="range" min="300" max="6000" step="300" value="300" class="slider" id="amount_range"
-                                name="loan_amount">
-                            <span id="amount_value" style="color:gray; font-size:25px;"></span>
-                        </div>
+                        <!-- start of second tab -->
+                        <div class="tab">
+                            <div class="form-group row">
+                                <label for="f_name">Name</label>
+                                <input type="text" class="form-control" id="f_name" value="" placeholder="First Name"
+                                    name="f_name">
+                            </div>
 
-                        <div class="form-group row">
-                            <label for="installment_range"> Installment:</label> *
-                            <input type="range" min="1" max="60" value="2" class="slider" id="installment_range" name="installment_range">
-                            <span id="installment_value" style="color: gray; font-size:25px;"></span>
-                        </div>
+                            <div class="form-group row">
+                                <label for="l_name">Last Name</label>
+                                <input type="text" class="form-control" id="l_name" value="" placeholder="Last Name"
+                                    name="l_name">
+                            </div>
 
-                        <div class="form-group row">
-                            <label for="installments">Min Installment Amount</label>
-                            <input type="text" class="form-control" id="min_installment" value="" placeholder="Min Installments"
-                                required name="min_installment">
+                            <div class="form-group row">
+                                <label for="address">Address </label>
+                                <input type="text" class="form-control" id="address" value="" placeholder="Your Address here"
+                                    name="address">
+                            </div>
                         </div>
+                        <!-- end of second tab -->
+                        <div class="form-group">
+                            <div>
 
-                        <div class="row form-check form-check-inline">
-                            <label class="form-check-label" for="employment_status">
-                                Employed?
-                                [yes to check]
-                                <input class="form-check-input" type="checkbox" value="" id="employment_status" name="employment_status">
+                                <button id="previous_button" type="button" onclick="previousPage()" class="btn custom-button">
+                                    << Previous </button> <button id="next_button" type="button" onclick="nextPage()"
+                                        class="btn custom-button">
+                                        Next>>
+                                </button>
+                            </div>
+                            <div class="">
+                                <span class="step"></span>
+                                <span class="step"></span>
+                            </div>
                         </div>
-                    </div>
-                    <!-- end of first tab -->
+                    </form>
 
-                    <!-- start of second tab -->
-                    <div class="tab">
-                        <div class="form-group row">
-                            <label for="f_name">Name</label>
-                            <input type="text" class="form-control" id="f_name" value="" placeholder="First Name" name="f_name">
-                        </div>
+                </div>
 
-                        <div class="form-group row">
-                            <label for="l_name">Last Name</label>
-                            <input type="text" class="form-control" id="l_name" value="" placeholder="Last Name" name="l_name">
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="address">Address </label>
-                            <input type="text" class="form-control" id="address" value="" placeholder="Your Address here"
-                                name="address">
-                        </div>
-                    </div>
-                    <!-- end of second tab -->
-                    <div class="form-group">
-                        <div>
-
-                            <button id="previous_button" type="button" onclick="previousPage()" class="btn custom-button">
-                                << Previous </button> <button id="next_button" type="button" onclick="nextPage()" class="btn custom-button">
-                                    Next>>
-                            </button>
-                        </div>
-                        <div class="">
-                            <span class="step"></span>
-                            <span class="step"></span>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-            <div class="col col-4 d-flex ">
-                <section id="About-us" style="position:absolute">
-                    <div class="card text-white bg-info card-shadow">
-                        <div class="card-header"><span style="font-size:1em;">! An amortized loan is a loan with
+                <div class="col col-4 d-flex ">
+                    <div class="card text-white  bg-infor card-shadow">
+                        <div class="card-header"><span>! An amortized loan is a loan with
                                 scheduled periodic
                                 payments that are applied to both principal and interest.</span></div>
                         <div class="card-body ">
@@ -157,36 +174,166 @@
                         </div>
                     </div>
 
-                </section>
-            </div>
-        </div> <!-- End of the form blcok-->
+                </div>
+            </div> <!-- End of the form blcok-->
+        </section>
+        <!-- <div class="box-spacer"></div>
+        <section id="middle-view">
 
-        <div class="row">
-            <div class="col col-12 d-flex ">
-                <aside>
-                    <h5>About !</h5>
-                    <p>We provide our customer evalution if they are elligible for loan or not .</p>
-                </aside>
-                <aside>
-                    <h5>How we operate</h5>
-                    <p>
-                        How we operate in the loan sector is this a
-                        proper way to identify
-                    </p>
-                </aside>
-                <aside>
-                    <h5>Get in touch with us</h5>
-                    <p>
-                        Contac us as your convenient.
-                    </p>
-                </aside>
-            </div>
+            <div class="row">
+                <div class="col col-12 d-flex ">
+                    <aside>
+                        <h5>About !</h5>
+                        <p>We provide our customer evalution if they are elligible for loan or not .</p>
+                    </aside>
+                    <aside>
+                        <h5>How we operate</h5>
+                        <p>
+                            How we operate in the loan sector is this a
+                            proper way to identify
+                        </p>
+                    </aside>
+                    <aside>
+                        <h5>Get in touch with us</h5>
+                        <p>
+                            Contac us as your convenient.
+                        </p>
+                    </aside>
+                </div>
 
-        </div>
-        <footer>
-            <p>Copyright 2019 we goive loan</p>
+            </div>
+            <div class="box-spacer"></div> -->
+        <footer id="footer-view">
+            <!-- Footer -->
+            <!-- <footer class="page-footer pt-4"> -->
+            <!-- Footer Links -->
+            <div class="container page-footer text-center text-md-left">
+                <!-- Footer links -->
+                <div class="row text text-md-left mt-3 pb-3">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4">We give loan-form</h6>
+                        <p>This Page provides some basic info.</p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4">Products</h6><hr>
+                        <p>
+                           <li><a href="#!">MDBootstrap</a></li> 
+                        </p>
+                        <p>
+                          <li><a href="#!">MDWordPress</a></li>  
+                        </p>
+                        <p>
+                            <li><a href="#!">BrandFlow</a></li>
+                        </p>
+                        <p>
+                            <li><a href="#!">Bootstrap Angular</a></li>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 ">Useful links</h6><hr>
+                        <p>
+                            <a href="#!">Your Account</a>
+                        </p>
+                        <p>
+                            <a href="#!">Become an Affiliate</a>
+                        </p>
+                        <p>
+                            <a href="#!">Shipping Rates</a>
+                        </p>
+                        <p>
+                            <a href="#!">Help</a>
+                        </p>
+                    </div>
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4">Contact</h6><hr>
+                        <p>
+                            <i class="fas fa-home mr-3"></i> Some place, PL 10012, UK</p>
+                        <p>
+                            <i class="fas fa-envelope mr-3"></i> info@wegiveloan.co.uk</p>
+                        <p>
+                            <i class="fas fa-phone mr-3"></i> + 358 015 5555</p>
+                        <p>
+                            <i class="fas fa-print mr-3"></i> + 358 015 5555</p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Footer links -->
+
+                <hr>
+
+                <!-- Grid row -->
+                <div class="row d-flex align-items-center">
+
+                    <!-- Grid column -->
+                    <div class="col-md-7 col-lg-8">
+
+                        <!--Copyright-->
+                        <p class="text-center text-md-left">© 2019 Copyright:
+                            <a href="#">
+                                <strong> weGiveLoan.co.uk</strong>
+                            </a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-5 col-lg-4 ml-lg-0">
+
+                        <!-- Social buttons -->
+                        <div class="text-center text-md-right">
+                            <ul class="list-unstyled list-inline">
+                                <li class="list-inline-item">
+                                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                        <i class="fab fa-google-plus-g"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            <!-- Footer Links -->
         </footer>
+        <!-- Footer -->
     </div>
+    </section>
+    <!--container ends here -->
 
 
     <!-- <script src="./src/main.js" type="text/javascript"> -->
@@ -199,9 +346,10 @@
             tab_lenth: 0,
             current_tab: 0,
             valid: false,
-            responseObject:{},
+            responseObject: {},
             thisObject: {},
         }
+        var URL = "http://localhost:3000"
         var loanForm = document.loan_form;
 
         init()
@@ -232,22 +380,24 @@
 
             const ty = document.getElementById(id);
             ty.className = "form-control form-group-border"
-                document.getElementById(id).className = "form-control "           
+            document.getElementById(id).className = "form-control "
         }
-        function allFormData(form){
-           return Object.values(form)
-            .reduce((obj,field) => { 
-                obj[field.name] = field.value; return obj 
-            }, {})
+        function allFormData(form) {
+            return Object.values(form)
+                .reduce((obj, field) => {
+                    obj[field.name] = field.value; return obj
+                }, {})
 
         }
         function postData(data) {
+            console.log('post data fired', allFormData(data))
             // TODO:: Implement post with fetch !!
-            fetch("https://httpbin.org/post", {
+            fetch(URL, {
                 method: "POST",
-                body: JSON.stringify(data)
+                body: JSON.stringify(allFormData(data))
             }).then(res => {
-                state.responseObject= res;
+                state.responseObject = res;
+                console.log(res)
             });
         }
         function sendMail(formData) {
@@ -277,7 +427,7 @@
             const employmentStatus = ifEmployd(form.employment_status.checked); // if checked 1 else 0
 
             if (state.current_tab == 0) {
-                if ( !form.email_address.value || !form.min_installment.value ) {
+                if (!form.email_address.value || !form.min_installment.value) {
                     // form.validate_input.nextSibling.innerHTML="must";
                     // console.log('inside the first fucntion')
                     form.email_address.className = " form-control invalid";
@@ -286,11 +436,11 @@
                 }
             }
 
-            if (state.current_tab == 1) {        
-                if ( !form.f_name.value || !form.l_name.value || !form.address.value ){
-                    form.f_name.className=" form-control invalid";
-                    form.l_name.className=" form-control invalid";
-                    form.address.className=" form-control invalid";
+            if (state.current_tab == 1) {
+                if (!form.f_name.value || !form.l_name.value || !form.address.value) {
+                    form.f_name.className = " form-control invalid";
+                    form.l_name.className = " form-control invalid";
+                    form.address.className = " form-control invalid";
                     return false;
                 }
             }
@@ -324,24 +474,6 @@
         /*
         form View satrt
         */
-        function nextPage() {
-            if (formFieldCheck(document.loan_form) === false) return 0; // check fields if false stay in the page
-            increament();
-            var tabs = document.getElementsByClassName('tab');
-            tabs[state.current_tab - 1].style.display = "none";
-            postData(tabs)
-            formPageView(state.current_tab)
-        }
-
-        function previousPage() {
-            decrement();
-            if (formFieldCheck(document.loan_form) === false) return 0; // check fields if false stay in the page
-        
-            var tabs = document.getElementsByClassName('tab');
-            tabs[state.current_tab + 1].style.display = "none";
-            formPageView(state.current_tab);
-        }
-
         function increament() {
             for (; state.current_tab <= state.tab_lenth - 2;) {
                 state.current_tab = state.current_tab + 1;
@@ -353,6 +485,25 @@
             state.current_tab = state.current_tab - 1;
             return true;
         }
+
+        function nextPage() {
+            if (formFieldCheck(document.loan_form) === false) return 0; // check fields if false stay in the page
+            increament();
+            var tabs = document.getElementsByClassName('tab');
+            tabs[state.current_tab - 1].style.display = "none";
+            postData(loanForm)
+            formPageView(state.current_tab)
+        }
+
+        function previousPage() {
+            decrement();
+            if (formFieldCheck(document.loan_form) === false) return 0; // check fields if false stay in the page
+
+            var tabs = document.getElementsByClassName('tab');
+            tabs[state.current_tab + 1].style.display = "none";
+            formPageView(state.current_tab);
+        }
+
 
         function stepIndicator(current_step) {
             var i, steps = document.getElementsByClassName("step");
@@ -375,7 +526,7 @@
             }
             if (tab_index == state.tab_lenth - 1) {
                 document.loan_form.next_button.innerHTML = "Submit";
-                document.loan_form.next_button.addEventListener('click',sendMail);
+                // document.loan_form.next_button.addEventListener('click',sendMail);
             } else {
                 document.loan_form.next_button.innerHTML = "Next >>"
             }
