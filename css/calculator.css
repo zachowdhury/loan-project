@@ -8,6 +8,7 @@ body {
   /* font-family: 'Open Sans', sans-serif; */
   background-color: #ededed;
 }
+
 .container {
   background-color: #ffffff;
 }
@@ -16,6 +17,15 @@ div {
   /* padding: 8px; */
   /* margin-right:5px; */
   /* margin-top: 10px; */
+}
+
+a {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #000000;
+  text-decoration-line: none;
 }
 
 header {
@@ -87,43 +97,44 @@ aside {
   position: relative;
   z-index: 3;
 }
+
 /* end banner body */
 
 /* Style the input fields */
 
-.custom-button {
-  background: rgba(3, 175, 190, 0.9);
+.apply-button {
+  background: rgb(231, 19, 55);
   align-self: center;
 }
 
 .box-spacer {
   width: 100%;
-  height:5em;
+  height: 5em;
 }
-.card.bg-infor{
-  background-image: -ms-linear-gradient(  #155e68,#187b88);
-  background-image: -webkit-linear-gradient( #155e68,#187b88);
-  background-image: -moz-linear-gradient( #155e68,#187b88);
-  background-image: -o-linear-gradient( #155e68,#187b88);
-  background-image: linear-gradient( #155e68,#187b88);
-  /* background: #084456; */
 
+.card.bg-infor {
+  background-image: -ms-linear-gradient( #155e68, #187b88);
+  background-image: -webkit-linear-gradient( #155e68, #187b88);
+  background-image: -moz-linear-gradient( #155e68, #187b88);
+  background-image: -o-linear-gradient( #155e68, #187b88);
+  background-image: linear-gradient( #155e68, #187b88);
+  /* background: #084456; */
 }
+
 .card-shadow {
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-a {
-  color: #ffffff;
-}
+
 /* Form starts -------------------*/
+
 /* grid layout ends with roots */
 
 form {
   padding: 8px;
 }
 
-.form  {
+.form {
   font-family: inherit;
   background-color: white;
 }
@@ -135,12 +146,9 @@ form {
   text-align: center;
 }
 
-
 /* Style the form */
 
 /* .form-group {float: left;} */
-
-
 
 .form-left-pannel {
   color: #ffffff;
@@ -149,15 +157,17 @@ form {
   grid-template-columns: 40px 50px auto 50px 40px;
   grid-template-rows: 25% 100px auto;
 }
+
 .form-info {
   font-size: 1em;
-  color:#ffffff;
+  color: #ffffff;
   text-align: right;
 }
+
 .reg-form {
   background-color: #ffffff;
   margin: 0px;
-  padding:0px;
+  padding: 0px;
   /* width: 70%; */
   /* min-width: 300px; */
 }
@@ -206,7 +216,6 @@ form {
   background-color: #4CAF50;
 }
 
-
 /*Slider ------------*/
 
 .slider {
@@ -227,7 +236,7 @@ form {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: rgba( 23,63,76, 0.9);
+  background: rgba( 23, 63, 76, 0.9);
   cursor: pointer;
 }
 
@@ -235,7 +244,7 @@ form {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: rgb( 23,63,76, 0.9);
+  background: rgb( 23, 63, 76, 0.9);
   cursor: pointer;
 }
 
@@ -247,13 +256,13 @@ form {
 }
 
 /* end slider */
-.page-footer{
-  color: #ffffff;
-/* background: #00565e; */
-background-image: -ms-linear-gradient(  #187b88,#155e68);
-background-image: -webkit-linear-gradient( -10deg, #187b88,#155e68 7%);
-background-image: -moz-linear-gradient(  #187b88,#155e68);
-background-image: -o-linear-gradient(  #187b88,#155e68);
-background-image: linear-gradient(   #187b88,#155e68);
 
+.page-footer {
+  color: #ffffff;
+  /* background: #00565e; */
+  background-image: -ms-linear-gradient( #187b88, #155e68);
+  background-image: -webkit-linear-gradient( -10deg, #187b88, #155e68 7%);
+  background-image: -moz-linear-gradient( #187b88, #155e68);
+  background-image: -o-linear-gradient( #187b88, #155e68);
+  background-image: linear-gradient( #187b88, #155e68);
 }
